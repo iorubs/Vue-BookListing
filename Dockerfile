@@ -1,14 +1,9 @@
 FROM node:10.1-alpine
 
-ENV APP_DIR /src/app/
+WORKDIR /src/app
 
-RUN mkdir -p $APP_DIR
-
-ADD ./package.json ${APP_DIR}
-
-WORKDIR $APP_DIR
+COPY ./package.json .
 
 RUN ["npm", "install"]
 
 COPY . .
-
